@@ -1,0 +1,92 @@
+package analizadorsintactico;
+
+import java_cup.runtime.Symbol;
+import analizadorsintactico.Utilidades;
+parser code 
+{:
+    private Symbol s;
+    public void syntax_error(Symbol s){
+        this.s = s;
+    }
+    public Symbol getS(){
+        return this.s;
+    }
+:};
+
+terminal NUMERO,LETRA,POTENCIA,INICIO_V, FIN_V,SUMA,NEGATIVO,MULTIPLICACION,DIVISION,DELIMITADOR,IGUAL,RAIZ,INICIO_GRUPO,FIN_GRUPO,DECIMAL,DPUNTOS,ERROR;
+non terminal INICIO, RESULTADO, TIPO, REGLAS, SIGNO, BASEI, BASEG, OPERACION, REGLA1_5, REGLA2_3_9, REGLA4, REGLA6_7, REGLA8;
+
+INICIO::= REGLA1_5|REGLA2_3_9|REGLA4|REGLA6_7|REGLA8;
+
+SIGNO::= SUMA:suma
+{:
+    RESULT= suma;
+:}
+| NEGATIVO:negativo
+{:
+    RESULT= negativo;
+:};
+
+OPERACION ::= 
+MULTIPLICACION:multiplicacion
+{:
+    RESULT= multiplicacion;
+:}
+|DIVISION:division
+{:
+    RESULT= division;
+:};
+
+TIPO::= LETRA:letra
+{:
+    RESULT= letra;
+:}
+| NUMERO:numero
+{:
+    RESULT= Integer.parseInt(numero.toString());
+:}
+| DECIMAL:decimal
+{:
+    RESULT= Double.parseDouble(decimal.toString());
+:};
+
+BASEI::= SIGNO:signo TIPO:tipo
+{:
+    RESULT= new StringBuilder(signo.toString()+tipo.toString());
+:}
+| TIPO:tipo
+{:
+    RESULT= tipo;
+:}; 
+ 
+
+REGLA1_5::= BASEI:base1 POTENCIA BASEI:expo1 OPERACION:tipo BASEI:base2 POTENCIA BASEI:expo2 DELIMITADOR 
+    {:
+        Utilidades.ResolverR1(base1,base2,expo1,expo2,tipo);
+    :}
+;
+
+REGLA2_3_9::= BASEI:base POTENCIA BASEI:exponente DELIMITADOR  
+         
+;
+REGLA4::= INICIO_GRUPO BASEI:base POTENCIA BASEI:exponente FIN_GRUPO POTENCIA  BASEI:expof DELIMITADOR 
+        {:
+            System.out.println("Potencia de Otra Potencia \n ");
+             Utilidades.regla4(base, exponente, expof);
+         :}
+;
+REGLA6_7::= INICIO_GRUPO BASEI:base1 OPERACION BASEI:base2 FIN_GRUPO POTENCIA BASEI:expo1 DELIMITADOR 
+        {:
+            System.out.println("Potencia de un producto o division"); 
+            Utilidades.regla6_7(base1, base2, expo1);
+         :}
+; 
+
+REGLA8::= BASEI:base POTENCIA INICIO_V BASEI:numerador OPERACION BASEI:denominador FIN_V DELIMITADOR  
+        {:
+            System.out.println("Potencia de una Fracción"); 
+         :}
+
+;
+
+

@@ -5,12 +5,6 @@
 package analizadorSW;
 
 import Respuesta.Respuesta;
-import analizadorsintactico.LexerCup;
-import analizadorsintactico.PrintTablaSimbolos;
-import analizadorsintactico.Sintax;
-import java.io.StringReader;
-import java.util.Base64;
-import java_cup.runtime.Symbol;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -37,48 +31,10 @@ public class AnalizadorSW {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response getResult(@PathParam("servicio") String servicio) {
-        String service = new String(Base64.getDecoder().decode(servicio));
-
-        System.out.println("LO QUE ME ENVIASTE" + service);
-        
-
-        //String cadena = "3^0;";
-        
-        
-        LexerCup lexerCup = new LexerCup(new StringReader(service));
-        Sintax s = new Sintax(lexerCup);
-        try {
-            s.parse();
-            //PrintTablaSimbolos.imprimirLista();
-            Respuesta r = new Respuesta();
-            r.setResultado("YA ESTA");
-            return Response.ok("{\"message\": \"NI IDEA QUE HAGO AQUI\"}").build();
-            /*Symbol aux = s.scan();
-            while (aux != null){
-                System.out.println(aux);
-                aux = s.scan();
-                if (aux.sym == 0){
-                    //System.out.println("Error en dato " + aux.value);
-                    break;
-                }else if(aux.sym == 11){
-                    System.out.println("Error en dato " + aux.value);
-                    break;
-                }
-            }*/
-            // s.scan();
-        } catch (Exception e) {
-            //PrintTablaSimbolos.imprimirLista();
-            System.out.println("Hay un ERROR " + e);
-
-            Symbol sym = s.getS();
-            if (sym != null) {
-                System.out.println("Error Syntactico en la linea " + (sym.right + 1) + " Columna " + (sym.left + 1) + " Texto " + (sym.value));
-            } else {
-                System.out.println("Error" + e);
-            }
-
-            return Response.status(Response.Status.BAD_REQUEST).entity("{\"message\": \"Error en ni idea\"}").build();
-
-        }
+        System.out.println("LO QUE ME ENVIASTE"+servicio);
+        Respuesta r = new  Respuesta();
+        r.setResultado("{\"message\": \"NI IDEA QUE HAGO AQUI\"}");
+        return Response.ok(r).build();
     }
+
 }
