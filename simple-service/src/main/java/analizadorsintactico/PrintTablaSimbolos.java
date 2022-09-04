@@ -66,7 +66,6 @@ public class PrintTablaSimbolos {
         System.out.println(" Lista de TOKEN                    Lista de LEXEMA");
         
         String format = "%1$-34s %2$-21s\n";
-
         for (int i = 0; i < PrintTablaSimbolos.lista.size(); i++) {
 
             System.out.format(format, "  " + PrintTablaSimbolos.lista.get(i), "      " + PrintTablaSimbolos.lista1.get(i));
