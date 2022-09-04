@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>PAGINA WEB</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"></script>
+    !-->
+
+
+    <script>
+        $(document).ready(function() {
+            $("#boton").click(function() {
+                var valor = $("#texto").val();
+                var base64 = btoa(valor);
+                var url = "http://localhost:8080/web/sintactico/" + base64;
+
+                $.ajax({
+                    url: url,
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        $("#resp").val(data.message);
+
+                    },
+                    error: function(error) {
+                        console.log(error);
+                        $("#resp").val(error);
+
+                    }
+                });
+
+
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+
+    <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+
+            <a href="#" class="btn btn-primary">COMPILAR</a>
+
+
+        </div>
+    </div>
+
+
+
+
+</body>
+
+</html>
