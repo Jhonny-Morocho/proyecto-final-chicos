@@ -1,5 +1,6 @@
 package com.underdog.jersey.grizzly;
 
+import java.util.Base64;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -22,9 +23,12 @@ public class MyResource {
     @GET
     public String getIt(@PathParam ("cadena") String cadenaId) {
         System.err.println("LA CADENA RECIVIDA ES GET ES "+cadenaId);
+        Base64.Decoder decoder = Base64.getDecoder();
+        String cadenaReal = new String(decoder.decode(cadenaId));
+        System.out.println("LA CADDENA DECODIFICA ES "+cadenaReal);
         String  strCadenResponse="";
         PotenciacionMyClass.Generar();
-        strCadenResponse=PotenciacionMyClass.leerCadena("3^0;");
+        strCadenResponse=PotenciacionMyClass.leerCadena(cadenaReal);
         return "OK "+strCadenResponse;
     }
     @POST

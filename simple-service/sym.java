@@ -21,11 +21,11 @@ public class sym {
   public static final int ERROR = 18;
   public static final int EOF = 0;
   public static final int INICIO_V = 5;
-  public static final int FIN_V = 6;
-  public static final int NUMERO = 2;
   public static final int error = 1;
-  public static final int FIN_GRUPO = 15;
+  public static final int NUMERO = 2;
+  public static final int FIN_V = 6;
   public static final int DELIMITADOR = 11;
+  public static final int FIN_GRUPO = 15;
   public static final int DPUNTOS = 17;
   public static final String[] terminalNames = new String[] {
   "EOF",
