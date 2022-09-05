@@ -40,6 +40,7 @@ const  CarritoCompras = new Vue({
         .then(response =>{
             console.log(response);
             this.lexema=response.data.lexema;
+            this.token=response.data.tokens;
             console.log(this.lexema);
         },error=>{
             console.log(error);

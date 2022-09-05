@@ -37,7 +37,7 @@ public class Sintax extends java_cup.runtime.lr_parser {
 
   /** Production table. */
   protected static final short _production_table[][] = 
-getFromFile("tables.out/shortarray_3.obj");
+getFromFile("tables.out/shortarray_18.obj");
 
   /** Access to production table. */
   public short[][] production_table() {return _production_table;}
@@ -56,14 +56,14 @@ public static short[][] getFromFile(String filename) {
 
   /** Parse-action table. */
   protected static final short[][] _action_table = 
-getFromFile("tables.out/shortarray_4.obj");
+getFromFile("tables.out/shortarray_19.obj");
 
   /** Access to parse-action table. */
   public short[][] action_table() {return _action_table;}
 
   /** <code>reduce_goto</code> table. */
   protected static final short[][] _reduce_table = 
-getFromFile("tables.out/shortarray_5.obj");
+getFromFile("tables.out/shortarray_20.obj");
 
   /** Access to <code>reduce_goto</code> table. */
   public short[][] reduce_table() {return _reduce_table;}
