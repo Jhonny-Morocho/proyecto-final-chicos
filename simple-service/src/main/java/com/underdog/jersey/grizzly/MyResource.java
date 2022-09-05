@@ -1,6 +1,8 @@
 package com.underdog.jersey.grizzly;
 
+import java.util.ArrayList;
 import java.util.Base64;
+import java.util.List;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -22,25 +24,14 @@ public class MyResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getIt(@PathParam ("cadena") String cadenaId) {
-        
-        System.err.println("LA CADENA RECIVIDA ES GET ES "+cadenaId);
+    public Response getIt(@PathParam ("cadena") String cadena64Bits) {
+        List listaRes = new ArrayList<List>();
         Base64.Decoder decoder = Base64.getDecoder();
-        String cadenaReal = new String(decoder.decode(cadenaId));
-        System.out.println("LA CADDENA DECODIFICA ES "+cadenaReal);
-        String  strCadenResponse="";
+        
+        String cadenaReal = new String(decoder.decode(cadena64Bits));
         PotenciacionMyClass.Generar();
-        strCadenResponse=PotenciacionMyClass.leerCadena(cadenaReal);
-        return Response.ok("{\"message\":\""+cadenaId+"\"}").header("Access-Control-Allow-Origin", "*").build();
-    }
-    @POST
-    @Consumes("application/x-www-form-urlencoded")
-    public String postCadena( @FormParam("cadena") String cadena) {
-        System.out.println("La cadena recivida es POST ES  "+cadena);
-
-        String  strCadenResponse="";
-        PotenciacionMyClass.Generar();
-        strCadenResponse=PotenciacionMyClass.leerCadena("3^0;");
-        return "OK "+strCadenResponse;
+        
+        listaRes=PotenciacionMyClass.leerCadena(cadenaReal);
+        return Response.ok("{\"message\":\""+listaRes+"\"}").header("Access-Control-Allow-Origin", "*").build();
     }
 }

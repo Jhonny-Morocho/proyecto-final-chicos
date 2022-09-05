@@ -9,9 +9,12 @@ import analizadorsintactico.PrintTablaSimbolos;
 import analizadorsintactico.Sintax;
 import java.io.File;
 import java.io.StringReader;
+import java.lang.reflect.Array;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 import java_cup.runtime.Symbol;
 
 
@@ -58,25 +61,27 @@ public class PotenciacionMyClass {
         }
     }
     
-    public static String leerCadena(String cadena){
+    public static ArrayList <List> leerCadena(String cadena){
 
         LexerCup lexerCup = new LexerCup(new StringReader(cadena));
         Sintax s = new Sintax(lexerCup);
+        ArrayList<List> listaRes = new ArrayList();
+        
         try {
             s.parse();
-            String tablaOk="****   TODO OK ***";
-            PrintTablaSimbolos.imprimirLista();
-            return tablaOk;
+            listaRes= PrintTablaSimbolos.imprimirLista();
+            System.out.println("LEER LISTA TODO OK "+listaRes);
+            return listaRes;
             // s.scan();
         } catch (Exception e) {
-            String StringError="";
-            PrintTablaSimbolos.imprimirLista();
+            listaRes=PrintTablaSimbolos.imprimirLista();
             Symbol sym = s.getS();
             if (sym != null) {
                 
-                StringError= "Error Syntactico en la linea " + (sym.right + 1) + " Columna " + (sym.left + 1) + " Texto " + (sym.value);
+                return listaRes;
             }
-            return StringError;
+            System.out.println("LEER LISTA ERROR "+listaRes);
+            return listaRes;
 
         }
     }

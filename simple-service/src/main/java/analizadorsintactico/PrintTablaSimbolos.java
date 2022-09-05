@@ -62,9 +62,16 @@ public class PrintTablaSimbolos {
     public static void addArrayList3(Integer dato) {
         lista3.add(dato);
     }
-    public static void imprimirLista(){
+    public static ArrayList<List> imprimirLista(){
         System.out.println(" Lista de TOKEN                    Lista de LEXEMA");
+        System.out.println(PrintTablaSimbolos.lista);
+        System.out.println(PrintTablaSimbolos.lista1);
         
+        ArrayList<List> arraysListas = new ArrayList<List>();
+        
+        arraysListas.add(PrintTablaSimbolos.lista);
+        arraysListas.add(PrintTablaSimbolos.lista1);
+        System.out.println("LAS LISTAS ARRAY SON "+arraysListas);
         String format = "%1$-34s %2$-21s\n";
         for (int i = 0; i < PrintTablaSimbolos.lista.size(); i++) {
 
@@ -72,6 +79,7 @@ public class PrintTablaSimbolos {
 
         }
         System.out.println("______________________________________________");
+        return arraysListas;
     }
 }
     

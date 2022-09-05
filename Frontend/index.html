@@ -62,7 +62,7 @@
       }
 </style> 
 </head>
-<body >
+<body id="app">
   
 <header id="header" class="header-one">
   <div class="bg-white">
@@ -116,13 +116,13 @@
 </header>
 <!--/ Header end -->
 
-<div class="banner-carousel banner-carousel-1 mb-0">
-  <div class="banner-carousel-item" style="background-image:url(images/fondom.jpg)">
+<div class="banner-carousel banner-carousel-1 mb-0" >
+  <div class="banner-carousel-item" >
     <div class="slider-content">
       <div class="container h-100"><br>
         <center>
-          <form  method="post"  @submit="checkForm" id="app" >
-            <div style="width: 900px;height: 200px;">
+          <form  method="post"  @submit="checkForm" >
+            <div style="width: 900px;">
               <div class="card">
                 <h5 class="card-header" style="text-align: center; font-family: 'Tangerine', serif; font-size: 20px;">REGLAS DE POTENCIACIÒN</h5>
                   <div class="card-body" style="background: #9BB598;">
@@ -142,11 +142,34 @@
               </div>
             </div>
           </form>
+          <div class="container mt-5">
+            <div class="row mt-5">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">TOKEN</th>
+                    <th scope="col">LEXAMA</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </center>
       </div>
     </div>
+
   </div>
+  
 </div>
+
 <section class="call-to-action-box no-padding">
   <div class="container">
     <div class="action-style-box">

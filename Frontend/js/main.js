@@ -31,9 +31,11 @@ const  CarritoCompras = new Vue({
     checkForm: function (e) {
         e.preventDefault();
         console.log(this.inputCadena);
+        let cadenaBase64=btoa(this.inputCadena);
+        console.log("cadena en 64 es "+cadenaBase64);
 
         //cliente
-        axios.get(this.url+this.inputCadena)
+        axios.get(this.url+cadenaBase64)
         .then(response =>{
             console.log(response);
         },error=>{
