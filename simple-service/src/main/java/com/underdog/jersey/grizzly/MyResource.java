@@ -1,5 +1,6 @@
 package com.underdog.jersey.grizzly;
 
+import analizadorsintactico.PrintTablaSimbolos;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
@@ -30,8 +31,8 @@ public class MyResource {
         
         String cadenaReal = new String(decoder.decode(cadena64Bits));
         PotenciacionMyClass.Generar();
-        
         listaRes=PotenciacionMyClass.leerCadena(cadenaReal);
-        return Response.ok("{\"message\":\""+listaRes+"\"}").header("Access-Control-Allow-Origin", "*").build();
+        System.out.println("ESTOY EN EL ENPIT "+PrintTablaSimbolos.lista1);
+        return Response.ok("{\"lexema\":\""+PrintTablaSimbolos.lista1+"\"}").header("Access-Control-Allow-Origin", "*").build();
     }
 }

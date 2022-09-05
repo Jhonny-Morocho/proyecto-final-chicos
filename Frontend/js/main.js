@@ -24,8 +24,10 @@ const  CarritoCompras = new Vue({
   const app = new Vue({
     el: '#app',
     data: {
-      inputCadena: "",
-      url:"http://localhost:8080/myapp/api/"
+      inputCadena: "3^0;",
+      url:"http://localhost:8080/myapp/api/",
+      lexema:"",
+      token:""
     },
     methods:{
     checkForm: function (e) {
@@ -33,11 +35,12 @@ const  CarritoCompras = new Vue({
         console.log(this.inputCadena);
         let cadenaBase64=btoa(this.inputCadena);
         console.log("cadena en 64 es "+cadenaBase64);
-
         //cliente
         axios.get(this.url+cadenaBase64)
         .then(response =>{
             console.log(response);
+            this.lexema=response.data.lexema;
+            console.log(this.lexema);
         },error=>{
             console.log(error);
         })

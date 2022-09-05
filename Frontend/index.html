@@ -62,7 +62,7 @@
       }
 </style> 
 </head>
-<body id="app">
+<body >
   
 <header id="header" class="header-one">
   <div class="bg-white">
@@ -116,7 +116,7 @@
 </header>
 <!--/ Header end -->
 
-<div class="banner-carousel banner-carousel-1 mb-0" >
+<div class="banner-carousel banner-carousel-1 mb-0" id="app">
   <div class="banner-carousel-item" >
     <div class="slider-content">
       <div class="container h-100"><br>
@@ -142,26 +142,10 @@
               </div>
             </div>
           </form>
-          <div class="container mt-5">
-            <div class="row mt-5">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">TOKEN</th>
-                    <th scope="col">LEXAMA</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
+          <ul class="list-group">
+            <li class="list-group-item active">LEXEMA: {{ lexema }}</li>
+            <li class="list-group-item active">TOKEN : {{ token }}</li>
+          </ul>
         </center>
       </div>
     </div>
