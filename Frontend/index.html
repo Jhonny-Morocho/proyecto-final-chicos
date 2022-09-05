@@ -62,7 +62,7 @@
       }
 </style> 
 </head>
-<body>
+<body >
   
 <header id="header" class="header-one">
   <div class="bg-white">
@@ -121,24 +121,32 @@
     <div class="slider-content">
       <div class="container h-100"><br>
         <center>
-          <div style="width: 900px;height: 200px;">
-            <div class="card">
-              <h5 class="card-header" style="text-align: center; font-family: 'Tangerine', serif; font-size: 20px;">REGLAS DE POTENCIACIÒN</h5>
-                <div class="card-body" style="background: #9BB598;">
-                  <h5 class="card-title">Ingrese una POTENCIA</h5>
-                  <textarea placeholder="Ingresa una potencia" style="width:400px;height: 50px;"> </textarea><br>
-                  <p data-animation-in="slideInLeft" data-duration-in="1.2">
-                    <a href="" class="slider btn btn-primary border">Compilar</a>
-                  </p>
-                </div> 
+          <form  method="post"  @submit="checkForm" id="app" >
+            <div style="width: 900px;height: 200px;">
+              <div class="card">
+                <h5 class="card-header" style="text-align: center; font-family: 'Tangerine', serif; font-size: 20px;">REGLAS DE POTENCIACIÒN</h5>
+                  <div class="card-body" style="background: #9BB598;">
+                    <h5 class="card-title">Ingrese una POTENCIA</h5>
+                    <textarea 
+                      placeholder="Ingresa una potencia"
+                      v-model="inputCadena" 
+                      style="width:400px;height: 50px;"> 
+
+                    </textarea><br>
+                    <p data-animation-in="slideInLeft" data-duration-in="1.2">
+                      <button type="submit" class="slider btn btn-primary border">
+                        Compilar
+                      </button>
+                    </p>
+                  </div> 
+              </div>
             </div>
-          </div>
+          </form>
         </center>
       </div>
     </div>
   </div>
 </div>
-
 <section class="call-to-action-box no-padding">
   <div class="container">
     <div class="action-style-box">
@@ -185,6 +193,9 @@
 
   <!-- Template custom -->
   <script src="js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" ></script>
+  <script src="js/main.js"></script>
 
   </div><!-- Body inner end -->
   </body>

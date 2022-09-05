@@ -11,17 +11,19 @@ import javax.ws.rs.FormParam;
 import javax.ws.rs.PathParam;
 import org.glassfish.jersey.server.model.ParamQualifier;
 import potenciacion.PotenciacionMyClass;
-
+import javax.ws.rs.core.Response;
 /**
  * Root resource (exposed at "myresource" path)
  */
+
 @Path("api/{cadena}")
-@Consumes(value= MediaType.APPLICATION_JSON)
-@Produces(value = MediaType.APPLICATION_JSON)
+//@Consumes(value= MediaType.APPLICATION_JSON)
 public class MyResource {
 
     @GET
-    public String getIt(@PathParam ("cadena") String cadenaId) {
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getIt(@PathParam ("cadena") String cadenaId) {
+        
         System.err.println("LA CADENA RECIVIDA ES GET ES "+cadenaId);
         Base64.Decoder decoder = Base64.getDecoder();
         String cadenaReal = new String(decoder.decode(cadenaId));
@@ -29,7 +31,7 @@ public class MyResource {
         String  strCadenResponse="";
         PotenciacionMyClass.Generar();
         strCadenResponse=PotenciacionMyClass.leerCadena(cadenaReal);
-        return "OK "+strCadenResponse;
+        return Response.ok("{\"message\":\""+cadenaId+"\"}").header("Access-Control-Allow-Origin", "*").build();
     }
     @POST
     @Consumes("application/x-www-form-urlencoded")
