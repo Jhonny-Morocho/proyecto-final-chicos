@@ -24,10 +24,11 @@ const  CarritoCompras = new Vue({
   const app = new Vue({
     el: '#app',
     data: {
-      inputCadena: "3^0;",
+      inputCadena: "3^2*3 ^2;",
       url:"http://localhost:8080/myapp/api/",
       lexema:"",
-      token:""
+      token:"",
+      res:"",
     },
     methods:{
     checkForm: function (e) {
@@ -41,7 +42,9 @@ const  CarritoCompras = new Vue({
             console.log(response);
             this.lexema=response.data.lexema;
             this.token=response.data.tokens;
+            this.res=response.data.res;
             console.log(this.lexema);
+            console.log(this.res);
         },error=>{
             console.log(error);
         })

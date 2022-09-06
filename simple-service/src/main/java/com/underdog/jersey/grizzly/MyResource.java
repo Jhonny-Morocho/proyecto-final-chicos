@@ -1,6 +1,7 @@
 package com.underdog.jersey.grizzly;
 
 import analizadorsintactico.PrintTablaSimbolos;
+import analizadorsintactico.Utilidades;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
@@ -33,6 +34,6 @@ public class MyResource {
         PotenciacionMyClass.Generar();
         listaRes=PotenciacionMyClass.leerCadena(cadenaReal);
         System.out.println("ESTOY EN EL ENPIT "+PrintTablaSimbolos.lista1);
-        return Response.ok("{\"lexema\":\""+PrintTablaSimbolos.lista1+"\",\"tokens\": \""+PrintTablaSimbolos.lista+"\"}").header("Access-Control-Allow-Origin", "*").build();
+        return Response.ok("{\"lexema\":\""+PrintTablaSimbolos.lista1+"\",\"tokens\": \""+PrintTablaSimbolos.lista+"\",\"res\":\""+Utilidades.strCadenaResul+"\"}").header("Access-Control-Allow-Origin", "*").build();
     }
 }

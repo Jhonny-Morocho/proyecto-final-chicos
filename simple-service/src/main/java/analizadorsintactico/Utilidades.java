@@ -11,7 +11,7 @@ import static java.lang.Math.pow;
  * @author Usuario
  */
 public class Utilidades {
-
+    public  static String strCadenaResul="";
     public static int typeBase(Object base) {
         System.out.println(base.getClass().getSimpleName());
         if (base.getClass().equals(String.class)) {
@@ -41,11 +41,14 @@ public class Utilidades {
                 Resultado = pow((Integer) base1, exponente);
                 System.out.println("Multiplicación de Potencias con la misma Base \n ");
                 System.out.println("El Resultado es: " + base1 + "^" + exponente + " = " + Resultado);
+                strCadenaResul="El Resultado es: " + base1 + "^" + exponente + " = " + Resultado;
+
             } else if (t.toString().charAt(0) == '/') {
                 Integer exponente = (Integer) expo1 - (Integer) expo2;
                 Resultado = pow((Integer) base1, exponente);
                 System.out.println("Multiplicación de Potencias con la misma Base \n ");
                 System.out.println("El Resultado es: " + base1 + "^" + exponente + " = " + Resultado);
+                strCadenaResul="El Resultado es: " + base1 + "^" + exponente + " = " + Resultado;
             }
         } else {
             System.out.println("Las bases no son iguales");
@@ -58,10 +61,12 @@ public class Utilidades {
                         Double exponente = (Double) expo1 + (Double) expo2;
                         System.out.println("Multiplicación de Potencias con la misma Base \n ");
                         System.out.println("El Resultado es: " + base1 + "^" + exponente);
+                        strCadenaResul="El Resultado es: " + base1 + "^" + exponente + " = " + Resultado;
                     } else if (t.toString().charAt(0) == '/') {
                         Double exponente = (Double) expo1 - (Double) expo2;
                         System.out.println("DIVISION de Potencias con la misma Base \n ");
                         System.out.println("El Resultado es: " + base1 + "^" + exponente);
+                        strCadenaResul="El Resultado es: " + base1 + "^" + exponente + " = " + Resultado;
                     }
                 }
                 case 2: {
@@ -70,11 +75,13 @@ public class Utilidades {
                         Resultado = pow((Integer) base1, exponente);
                         System.out.println("Multiplicacion de Potencias con la misma Base \n ");
                         System.out.println("El Resultado es: " + base1 + "^" + exponente + " = " + Resultado);
+                        strCadenaResul="El Resultado es: " + base1 + "^" + exponente + " = " + Resultado;
                     } else if (t.toString().charAt(0) == '/') {
                         Integer exponente = (Integer) expo1 - (Integer) expo2;
                         Resultado = pow((Integer) base1, exponente);
                         System.out.println("DIVISION de Potencias con la misma Base \n ");
                         System.out.println("El Resultado es: " + base1 + "^" + exponente + " = " + Resultado);
+                        strCadenaResul="El Resultado es: " + base1 + "^" + exponente + " = " + Resultado;
                     }
                 }
                 case 3: {
@@ -83,11 +90,13 @@ public class Utilidades {
                         Resultado = pow((Double) base1, exponente);
                         System.out.println("Multiplicacion de Potencias con la misma Base \n ");
                         System.out.println("El Resultado es: " + base1 + "^" + exponente + " = " + Resultado);
+                        strCadenaResul="El Resultado es: " + base1 + "^" + exponente + " = " + Resultado;
                     } else if (t.toString().charAt(0) == '/') {
                         Double exponente = (Double) expo1 - (Double) expo2;
                         Resultado = pow((Double) base1, exponente);
                         System.out.println("DIVISION de Potencias con la misma Base \n ");
                         System.out.println("El Resultado es: " + base1 + "^" + exponente + " = " + Resultado);
+                        strCadenaResul="El Resultado es: " + base1 + "^" + exponente + " = " + Resultado;
                     }
                 }
                 default:
@@ -106,11 +115,13 @@ public class Utilidades {
         if (exponente1 == '1') {
             Resultado = 1.1;
             System.out.println("El Resultado es: " + base1 + "^" + exponente + " = " + Resultado);
+            strCadenaResul="El Resultado es: " + base1 + "^" + exponente + " = " + Resultado;
 
         }
         if (exponente1 == '0') {
             Resultado = 1.1;
             System.out.println("El Resultado es: " + base1 + "^" + exponente + " = " + Resultado);
+            strCadenaResul="El Resultado es: " + base1 + "^" + exponente + " = " + Resultado;
 
         } else {
 
@@ -127,6 +138,9 @@ public class Utilidades {
         System.out.println("El Resultado es: " + a + "^" + e + "*" + x + "="
                 + a + exponente + " = "
                 + Resultado);
+        strCadenaResul="El Resultado es: " + a + "^" + e + "*" + x + "="
+                + a + exponente + " = "
+                + Resultado;
     }
 
     public static void regla6_7(Object num1, Object num2, Object expo) {
